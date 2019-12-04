@@ -1,0 +1,183 @@
+body {
+	font-family: Merriweather,Georgia;
+	margin: 0;
+}
+
+h1 {
+	font-size: 5em;
+}
+
+p {
+
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+}
+
+/*hero image*/
+
+#hero-img {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.2) url("images/hero.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-blend-mode: overlay;
+	color: white;
+}
+
+#hero-img h3 {
+	font-size: 2em;
+}
+
+/*search box*/
+
+#searchbox {
+	display: none;
+	position: fixed;
+	right: 45px;
+	top: 50px;
+	width: 200px;
+	z-index: 50;
+	transition: 0.4s;
+}
+
+#searchbox input {
+	height: 30px;
+	width: 100%;
+}
+
+/*navigation*/
+
+nav {
+	height: 60px;
+	width: 100%;
+	margin: 0;
+	position: fixed;
+	font-size: 1em;
+	display: flex;
+	justify-content: space-between;
+	padding-right: 15px;
+	box-sizing: border-box;
+	z-index: 100;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%
+	margin: 0;
+}
+
+nav a {
+	padding: 0 30px;
+
+}
+
+#logo-img img {
+	height: 50px;
+	padding: 10px;	
+}
+
+#menu-icon {
+	height: 100px;
+	font-size: 2em;
+	padding: 0 10px;
+	color: #eee;
+	display: none;
+	align-items: center;
+	cursor: pointer;
+}
+
+/*search icon*/
+
+#search-icon {
+	color: white;
+	padding: 0 32px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+#search-icon:hover {
+	color: red;
+}
+
+/*slideout menu*/
+
+#slideout-menu {
+	display: none;
+	background: #2d3436;
+	z-index: 100;
+	position: fixed;
+	transition: 0.4s;
+	margin-top: 80px;
+	width: 100%;
+	text-align: center;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#slideout-menu ul {
+	list-style: none;
+	padding: 0 32px;
+}
+
+#slideout-menu ul li {
+	padding: 8px;
+}
+
+#slideout-menu a {
+	font-size: 20px;
+	color: white;	
+}
+
+#slideout-menu input {
+	width: 85%;
+	padding: 8px;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*media queries*/
+
+@media (max-width: 900px) {
+	nav ul {
+		display: none;
+	}
+
+	#menu-icon {
+		display: flex;
+	}
+
+	#slideout-menu {
+		display: block;
+	}
+
+	#searchbox {
+		display: none;
+	}
+}
+
+main {
+	display: block;
+	margin: auto;
+	width: 70%;
+}
+
+main h1 {
+	font-size: 2em;
+}
+
+
+
