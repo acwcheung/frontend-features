@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	width: 100%;
+}
+
+nav.navbar-bb > ul {
+	height: 8vh;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	font-family: Arial;
+	color: grey;
+	font-size: 15px;
+	border-bottom: 1px solid lightgrey;	
+	padding: 0;
+	margin: 0;
+}
+
+nav.navbar-bb li {
+	list-style: none;
+	cursor: pointer;
+}
+
+nav.navbar-bb > ul > li {
+	padding: 40px 30px 40px 30px;
+}
+
+nav.navbar-bb li:hover,
+nav.navbar-bb a:hover {
+	color: #01a1dd;
+	background: white;
+}
+
+nav.navbar-bb ul li.logo {
+	margin-left: 70px;
+}
+
+nav.navbar-bb > ul > li:nth-child(5) {
+	margin-left: auto;
+}
+
+nav.navbar-bb ul li a.btn-subscribe {
+	color: #01a1dd;
+}
+
+nav.navbar-bb a {
+	text-decoration: none;
+	color: grey;
+}
+
+nav.navbar-bb ul li ul {
+	display: none;
+	position: absolute;
+	top: 8vh;
+	border-style: none;
+	background-color: white;
+	padding: 10px 30px 20px 30px;
+	transition: all 0.5 ease;
+	color: grey;
+}
+
+nav.navbar-bb > ul > li > ul > li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+nav.navbar-bb > ul > li:hover > ul,
+nav.navbar-bb > ul > li > ul:hover {
+	display: block;
+}
+
+.image-bb {
+	width: 100vw;
+	height: auto;
+}

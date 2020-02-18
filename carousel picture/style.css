@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+	width: 100%;
+}
+
+div.image img {
+	width: 100vw;
+	height: 100vh;
+	background-size: cover;
+	position: center;
+	background-repeat: no-repeat;
+}
+
+a.prev,
+a.next {
+	position: absolute;
+	top: 45%;
+	font-size: 50px;
+	color: grey;
+	cursor: pointer;
+}
+
+a.prev {
+	left: 5%;
+}
+
+a.next {
+	right: 5%;
+}
+
+div.image-indicators {
+	position: absolute;
+	bottom: 10%;
+	left: 45%;
+}
+
+.stroke {
+	display: inline-block;
+	height: 5px;
+	width: 30px;
+	border-bottom: 5px solid grey;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.stroke:hover,
+.active {
+	border-bottom: 5px solid black;
+}
