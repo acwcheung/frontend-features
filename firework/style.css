@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  background-image: url("hongkong.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+}
+/* fire bang */
+.fire-container {
+  position: absolute;
+  left: 47.5%;
+  top: 10%;
+  width: 5%;
+  height: 80%;
+}
+.fire-1 {
+  height: 5%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 47.5%;
+  animation: 2s bang-1 infinite;
+}
+.fire-2 {
+  height: 5%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 47.5%;
+  animation: 2s bang-2 infinite;
+}
+
+/* animation */
+@keyframes bang-1 {
+  from {
+    top: 47.5%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes bang-2 {
+  from {
+    top: 47.5%;
+  }
+  to {
+    top: 95%;
+  }
+}
+/* below is the css for individual containers */
+/* position and size */
+.container-1 {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  margin-top: 10%;
+}
+.container-2 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+.container-3 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin-left: 70%;
+  margin-top: -10%;
+}
+
+/* color of the fire */
+.container.container-1 .fire-container .fire-1,
+.container.container-1 .fire-container .fire-2 {
+  background-color: red;
+}
+.container.container-2 .fire-container .fire-1,
+.container.container-2 .fire-container .fire-2 {
+  background-color: yellow;
+}
+.container.container-3 .fire-container .fire-1,
+.container.container-3 .fire-container .fire-2 {
+  background-color: orange;
+}

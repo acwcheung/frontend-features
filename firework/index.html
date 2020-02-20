@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>Fireworkl</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class='container container-1'></div>
+	<div class='container container-2'></div>
+	<div class='container container-3'></div>
+
+	<script>
+		const container = document.querySelectorAll('.container');
+		const degrees = [0, 30, 60, 90, 120, 150];
+		container.forEach(container => {
+		  container.innerHTML = degrees.map(degree => {
+		  return `<div 
+		            class='fire-container' style='transform: rotate(${degree}deg)'>
+		            <div class='fire-1'></div>
+		            <div class='fire-2'></div>
+		          </div>`
+		  }).join('');
+		})
+
+
+
+	</script>
+</body>
+</html>
