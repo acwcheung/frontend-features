@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-image: url("hongkong.jpg");
+  background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -14,20 +15,17 @@ body {
   width: 5%;
   height: 80%;
 }
-.fire-1 {
+.fire {
   height: 5%;
   width: 100%;
   border-radius: 50%;
   position: absolute;
-  top: 47.5%;
+  top: 47.5%;  
+}
+.fire-1 {
   animation: 2s bang-1 infinite;
 }
 .fire-2 {
-  height: 5%;
-  width: 100%;
-  border-radius: 50%;
-  position: absolute;
-  top: 47.5%;
   animation: 2s bang-2 infinite;
 }
 
@@ -74,15 +72,12 @@ body {
 }
 
 /* color of the fire */
-.container.container-1 .fire-container .fire-1,
-.container.container-1 .fire-container .fire-2 {
+.container-1 .fire {
   background-color: red;
 }
-.container.container-2 .fire-container .fire-1,
-.container.container-2 .fire-container .fire-2 {
+.container-2 .fire {
   background-color: yellow;
 }
-.container.container-3 .fire-container .fire-1,
-.container.container-3 .fire-container .fire-2 {
+.container-3 .fire {
   background-color: orange;
 }
