@@ -2,11 +2,103 @@ body {
 	margin: 0;
 	width: 100%;
 }
-
-nav.navbar-bb > ul {
+/* hamburger menu for smaller screen */
+div.nav-mobile {
+	display: none;
 	height: 8vh;
 	width: 100%;
-	margin: auto;
+	align-items: center;
+}
+/* divide three equal portions */
+div.nav-mobile > div,
+div.nav-mobile > a {
+	flex: 1;
+}
+/* keep the logo center */
+div.nav-mobile > a {
+	display: flex;
+	justify-content: center;
+}
+div.container-hamburger {
+	height: 20px;
+	width: 20px;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	cursor: pointer;	
+}
+div.hamburger,
+div.hamburger::before,
+div.hamburger::after {
+	width: 20px;
+	height: 3px;
+	border-radius: 5px;
+	background-color: grey;
+	position: relative;
+}
+
+div.hamburger::before,
+div.hamburger::after {
+	content: '';
+	position: absolute;
+}
+div.hamburger::before {
+	top: -5px;
+}
+div.hamburger::after { 
+	top: 5px;
+}
+.nav-open .slideout-menu {
+	transform: translate(0px);
+}
+.slideout-menu {
+	display: block;
+	position: absolute;
+	top: 8vh;
+	font-family: Arial;
+	color: grey;
+	background-color: white;
+	transform: translateX(-500px);
+	transition: transform 0.5s ease-in;
+}
+.slideout-menu > ul {
+	list-style: none;
+	padding: 0 20px;
+	height: 100vh;
+	width: 250px;
+	padding: 0;
+}
+.slideout-menu ul li {
+	padding: 20px;
+	border-bottom: solid 1px grey;
+}
+.slideout-menu ul li:hover {
+	color: #01a1dd;
+	cursor: pointer;
+}
+.slideout-menu ul > li > ul {
+	list-style: none;
+	display: none;
+	height: auto;
+	padding-left: 20px;
+	transition: display 1s ease-in;
+	color: grey;
+}
+.slideout-menu ul > li > ul > li {
+	border: none;
+	padding: 10px 0;
+}
+.slideout-menu ul > li:hover > ul,
+.slideout-menu ul > li > ul:hover { 
+	display: block;
+}
+
+/* > immeidate child, more than one ul */
+nav > ul {
+	height: 8vh;
+	width: 100%;
+	background-color: white;
 	display: flex;
 	align-items: center;
 	font-family: Arial;
@@ -17,60 +109,78 @@ nav.navbar-bb > ul {
 	margin: 0;
 }
 
-nav.navbar-bb li {
+nav li {
 	list-style: none;
 	cursor: pointer;
 }
 
-nav.navbar-bb > ul > li {
-	padding: 40px 30px 40px 30px;
+nav > ul > li {
+	box-sizing: border-box;
+	padding: 19px 30px;
+	background: none;
 }
 
-nav.navbar-bb li:hover,
-nav.navbar-bb a:hover {
+nav li:hover,
+nav a:hover {
 	color: #01a1dd;
 	background: white;
 }
 
-nav.navbar-bb ul li.logo {
+nav ul li.logo {
 	margin-left: 70px;
+	padding: 0 30px;
 }
 
-nav.navbar-bb > ul > li:nth-child(5) {
+nav > ul > li:nth-child(5) {
 	margin-left: auto;
 }
 
-nav.navbar-bb ul li a.btn-subscribe {
+nav ul li a.btn-subscribe {
 	color: #01a1dd;
 }
 
-nav.navbar-bb a {
+nav a {
 	text-decoration: none;
 	color: grey;
 }
 
-nav.navbar-bb ul li ul {
+nav ul li ul {
+	/* hide the pull down first */
 	display: none;
 	position: absolute;
 	top: 8vh;
 	border-style: none;
 	background-color: white;
 	padding: 10px 30px 20px 30px;
-	transition: all 0.5 ease;
+	transition: display 1s ease-in;
 	color: grey;
 }
 
-nav.navbar-bb > ul > li > ul > li {
-	padding-top: 10px;
-	padding-bottom: 10px;
+nav > ul > li > ul > li {
+	padding: 10px 0;
 }
 
-nav.navbar-bb > ul > li:hover > ul,
-nav.navbar-bb > ul > li > ul:hover {
+/* li hover => ul displayed */
+nav > ul > li:hover > ul,
+nav > ul > li > ul:hover {
 	display: block;
 }
 
-.image-bb {
-	width: 100vw;
-	height: auto;
+
+div.image-bb {
+	height: 100vh;
+	background-image: url('bb.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@media only screen and (max-width: 850px) {
+	nav {
+		display: none;
+	}
+	div.nav-mobile {
+		display: flex;
+	}
+
 }
