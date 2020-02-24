@@ -2,6 +2,8 @@ body {
 	margin: 0;
 	width: 100%;
 }
+
+
 /* hamburger menu for smaller screen */
 div.nav-mobile {
 	display: none;
@@ -28,6 +30,7 @@ div.container-hamburger {
 	justify-content: center;
 	cursor: pointer;	
 }
+/* add two more bars to form the hamburger */
 div.hamburger,
 div.hamburger::before,
 div.hamburger::after {
@@ -37,7 +40,6 @@ div.hamburger::after {
 	background-color: grey;
 	position: relative;
 }
-
 div.hamburger::before,
 div.hamburger::after {
 	content: '';
@@ -49,9 +51,13 @@ div.hamburger::before {
 div.hamburger::after { 
 	top: 5px;
 }
+/* add a class for the slideout menu */
 .nav-open .slideout-menu {
-	transform: translate(0px);
+	transform: translateX(0);
 }
+
+
+/* the slideout menu */
 .slideout-menu {
 	display: block;
 	position: absolute;
@@ -89,12 +95,14 @@ div.hamburger::after {
 	border: none;
 	padding: 10px 0;
 }
+/* hover to open the pull down menu */
 .slideout-menu ul > li:hover > ul,
 .slideout-menu ul > li > ul:hover { 
 	display: block;
 }
 
-/* > immeidate child, more than one ul */
+
+/* the web navbar */
 nav > ul {
 	height: 8vh;
 	width: 100%;
@@ -108,44 +116,36 @@ nav > ul {
 	padding: 0;
 	margin: 0;
 }
-
 nav li {
 	list-style: none;
 	cursor: pointer;
 }
-
 nav > ul > li {
 	box-sizing: border-box;
 	padding: 19px 30px;
 	background: none;
 }
-
 nav li:hover,
 nav a:hover {
 	color: #01a1dd;
 	background: white;
 }
-
 nav ul li.logo {
 	margin-left: 70px;
 	padding: 0 30px;
 }
-
 nav > ul > li:nth-child(5) {
 	margin-left: auto;
 }
-
 nav ul li a.btn-subscribe {
 	color: #01a1dd;
 }
-
 nav a {
 	text-decoration: none;
 	color: grey;
 }
-
+/* hide the pull down first */
 nav ul li ul {
-	/* hide the pull down first */
 	display: none;
 	position: absolute;
 	top: 8vh;
@@ -155,16 +155,15 @@ nav ul li ul {
 	transition: display 1s ease-in;
 	color: grey;
 }
-
 nav > ul > li > ul > li {
 	padding: 10px 0;
 }
-
 /* li hover => ul displayed */
 nav > ul > li:hover > ul,
 nav > ul > li > ul:hover {
 	display: block;
 }
+
 
 
 div.image-bb {
@@ -175,6 +174,7 @@ div.image-bb {
 	background-size: cover;
 }
 
+
 @media only screen and (max-width: 850px) {
 	nav {
 		display: none;
@@ -182,5 +182,4 @@ div.image-bb {
 	div.nav-mobile {
 		display: flex;
 	}
-
 }
