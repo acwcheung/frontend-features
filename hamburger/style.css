@@ -1,26 +1,21 @@
 body {
 	font-family: Merriweather,Georgia;
-	margin: 0;
+	margin: 0;	
 }
-
 h1 {
 	font-size: 5em;
 }
 
-p {
-
-}
-
 a {
 	text-decoration: none;
+	color: white;
 }
-
 a:hover {
 	color: red;
 }
 
-/*hero image*/
 
+/*hero image*/
 #hero-img {
 	height: 100vh;
 	display: flex;
@@ -28,19 +23,30 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	background: rgba(0, 0, 0, 0.2) url("hero.jpg");
+	background-blend-mode: overlay;
+	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-	background-position: center;
-	background-blend-mode: overlay;
-	color: white;
+	color: white;	
 }
-
 #hero-img h3 {
 	font-size: 2em;
 }
 
-/*search box*/
 
+/*search icon*/
+#search-icon {
+	color: white;
+	padding: 0 32px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+#search-icon:hover {
+	color: red;
+}
+
+/*search box*/
 #searchbox {
 	display: none;
 	position: fixed;
@@ -50,14 +56,12 @@ a:hover {
 	z-index: 50;
 	transition: 0.4s;
 }
-
 #searchbox input {
 	height: 30px;
 	width: 100%;
 }
 
 /*navigation*/
-
 nav {
 	height: 60px;
 	width: 100%;
@@ -70,7 +74,6 @@ nav {
 	box-sizing: border-box;
 	z-index: 100;
 }
-
 nav ul {
 	display: flex;
 	list-style: none;
@@ -79,17 +82,16 @@ nav ul {
 	height: 100%
 	margin: 0;
 }
-
 nav a {
 	padding: 0 30px;
-
 }
-
-#logo-img img {
+#logo-img {
 	height: 50px;
 	padding: 10px;	
 }
 
+
+/* hamburger */
 #menu-icon {
 	height: 100px;
 	font-size: 2em;
@@ -100,21 +102,7 @@ nav a {
 	cursor: pointer;
 }
 
-/*search icon*/
-
-#search-icon {
-	color: white;
-	padding: 0 32px;
-	cursor: pointer;
-	transition: 0.4s;
-}
-
-#search-icon:hover {
-	color: red;
-}
-
 /*slideout menu*/
-
 #slideout-menu {
 	display: none;
 	background: #2d3436;
@@ -127,21 +115,17 @@ nav a {
 	opacity: 0;
 	pointer-events: none;
 }
-
 #slideout-menu ul {
 	list-style: none;
 	padding: 0 32px;
 }
-
 #slideout-menu ul li {
 	padding: 8px;
 }
-
 #slideout-menu a {
 	font-size: 20px;
 	color: white;	
 }
-
 #slideout-menu input {
 	width: 85%;
 	padding: 8px;
@@ -149,8 +133,8 @@ nav a {
 	text-align: center;
 }
 
-/*media queries*/
 
+/*media queries*/
 @media (max-width: 900px) {
 	nav ul {
 		display: none;
@@ -169,12 +153,12 @@ nav a {
 	}
 }
 
+
 main {
 	display: block;
 	margin: auto;
 	width: 70%;
 }
-
 main h1 {
 	font-size: 2em;
 }
