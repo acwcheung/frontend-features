@@ -7,17 +7,13 @@ body {
 }
 h1 {
 	position: absolute;
-	top: 50%;
+	top: 100px;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0);
 }
-p {
-	width: 60%;
-	margin: auto;
-	margin-top: 50px;
-	color: black;
-	text-align: left;
-}
+
+
+/* sliding background */
 .wrapper {
 	width: 100%;
 	height: 100vh;
@@ -38,4 +34,79 @@ p {
 	to {
 		transform: translate3d(0, -100vh, 0);
 	}
+}
+
+
+/* the quiz container */
+.container {
+	box-sizing: border-box;
+	width: 50%;
+	height: 300px;
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: white;
+	color: black;
+	padding: 50px;
+	text-align: center;
+	border-radius: 20px;
+	box-shadow: 3px 3px 5px grey;
+}
+.container-quiz {
+	width: 100%;
+	position: relative;
+
+}
+.quiz {
+	width: 100%;
+	/*position: absolute;*/
+}
+.slide {
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	z-index: 1;
+}
+.active-slide {
+	opacity: 1;
+	/* need to be on top, otherwise button can't be clicked */
+	z-index: 2;
+}
+
+.question {
+	margin: 0 30px 30px 30px;
+	font-size: 20px;
+}
+.answer {
+	width: 80%;
+	margin: auto;
+	padding: 0 10%;
+	text-align: left;	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.answer label {
+	margin-bottom: 5px;
+}
+.answer input {
+	margin-right: 15px;
+}
+
+/* the control container */
+.container-control {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 30px;	
+}
+
+.results {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	
+
 }
