@@ -30,30 +30,17 @@ function showResult() {
 	myQuestions.forEach((question, index) => {
 		const answerContainer = answerContainers[index];
 		const selector = `input[name=question-${index}]:checked`;
-		const userAnswer = (answerContainer.querySelector(selector)).value;
+		const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 		
 		
 		if(userAnswer === question.correctAnswer) {
 			numCorrect++;
 		}
 	})
-	const comment = numCorrect > myQuestions.length / 2 ? "You will get there": "Good luck!";
+	const comment = numCorrect > myQuestions.length / 2 ? "You will be a successful developer!": "Good luck!";
 	slides[currentSlide].classList.remove('active-slide');		
 	results.innerHTML = `<h3>${comment}</h3>
 						<p>${numCorrect} out of ${myQuestions.length}</p>`;
-}
-
-
-
-function showSlide(n) {
-	for(let i=0; i < slides.length; i++) {
-		if(i === n) {
-			slides[i].classList.add('active-slide');		
-		} else {
-			slides[i].classList.remove('active-slide');		
-		}		
-	}
-	currentSlide = n;	
 }
 
 function slideMove(e) {
@@ -63,6 +50,34 @@ function slideMove(e) {
 		showSlide(currentSlide -1);
 	} else {
 		return null
+	}
+}
+
+function showSlide(n) {
+	for(let i=0; i < slides.length; i++) {
+		if(i === n) {
+			slides[i].classList.add('active-slide');		
+		} else {
+			slides[i].classList.remove('active-slide');		
+		}		
+	}
+	currentSlide = n;
+	showButton(currentSlide);
+}
+
+function showButton(n) {
+	if(n === 0) {
+		preButton.style.display = 'none';
+		nextButton.style.display = 'inline-block';
+		submitButton.style.display = 'none';
+	} else if(n < slides.length -1 && n > 0) {
+		preButton.style.display = 'inline-block';
+		nextButton.style.display = 'inline-block';
+		submitButton.style.display = 'none';
+	} else if(n === slides.length - 1) {
+		preButton.style.display = 'inline-block';
+		nextButton.style.display = 'none';
+		submitButton.style.display = 'inline-block';
 	}
 }
 
