@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get a meal</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+</head>	
+<body>
+	<h1>Finding your Yummy Recipe</h1>
+	<div class="search-container">	
+		<h3>We pick for you?<button class="order">Click!</button></h3>
+		<form class="search">
+			<input type="text" name="keyword" placeholder="Name the main ingredient"><button type="submit">Submit</button>	
+		</form>	
+	</div>
+	
+	<div class="meal-container"></div>
+
+	<script>
+
+		function randomMeal() {
+			fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+			  .then(resp => resp.json())
+			  .then(data => {
+			  	const meal = data.meals[0];
+			  	displayMeal(meal);
+			  });
+			  document.body.classList.add('open');
+		};
+
+		function mealByName(e) {
+			e.preventDefault();
+			const text = document.querySelector('input[type=text]').value;
+			fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${text}`) 
+			  .then(resp => resp.json())
+			  .then(data => {
+			  	let meal;
+			  	data.meals === null ? meal = false: meal = data.meal[0]; 
+			  	displayMeal(meal);	
+			  });
+			document.body.classList.add('open');	
+		}
+
+		function displayMeal(m) {
+			if(!m) {
+				return mealContainer.innerHTML = `
+					<h3>Sorry! No meal of this ingredient.</h3>
+				`
+			}
+			const { strMeal, strCategory, strArea, strInstructions, 
+			strMealThumb, strYouTube } = m;
+
+			//handle the instructions
+			const instructions = strInstructions.split('.')
+			const displayInst = instructions.map(sentence => {
+				if(!sentence) { return null };
+				return `
+					<li>${sentence}</li>
+					`
+			}).join('');
+
+			//handle the ingredients
+			let ingredientKeys = [];
+			let measureKeys = [];
+			
+			for(let i = 1; i < 21; i++) {
+				ingredientKeys.push(`strIngredient${i}`);
+				measureKeys.push(`strMeasure${i}`);
+			}
+
+			const ingredientList = ingredientKeys.map((ingredient, i) => {
+				if(!m[ingredient]) { return null };
+				return `
+					<li>${m[ingredient]} ${m[measureKeys[i]]}</li>
+				`
+			}).join('');
+
+			mealContainer.innerHTML = `
+				<img src="${strMealThumb}" alt="meal picture">
+				<div class="details">
+					<div class="name">${strMeal}</div>
+					<div class='tags'>#${strCategory} #${strArea}</div>
+					<ul class="ingredients">
+						${ingredientList}
+					</ul>
+				</div>
+				<div class="instructions">
+					<h3>Instructions</h3>
+					<ol>
+						${displayInst}
+					</ol>
+				</div>
+					`				
+		}
+
+		const mealContainer = document.querySelector('.meal-container');
+		const orderButton = document.querySelector('.order');
+		const searchName = document.querySelector('.search'); //form tag
+
+		orderButton.addEventListener('click', randomMeal); 
+		searchName.addEventListener('submit', mealByName);  //submit the form with input
+
+	</script>
+</body>
+</html>
