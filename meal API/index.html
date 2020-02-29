@@ -10,7 +10,7 @@
 	<div class="search-container">	
 		<h3>We pick for you?<button class="order">Click!</button></h3>
 		<form class="search">
-			<input type="text" name="keyword" placeholder="Name the main ingredient"><button type="submit">Submit</button>	
+			<input type="text" name="keyword" placeholder="Name the main ingredient"><button type="submit">GO!</button>	
 		</form>	
 	</div>
 	
@@ -35,7 +35,7 @@
 			  .then(resp => resp.json())
 			  .then(data => {
 			  	let meal;
-			  	data.meals === null ? meal = false: meal = data.meal[0]; 
+			  	data.meals === null ? meal = false: meal = data.meals[0]; 
 			  	displayMeal(meal);	
 			  });
 			document.body.classList.add('open');	
@@ -48,7 +48,7 @@
 				`
 			}
 			const { strMeal, strCategory, strArea, strInstructions, 
-			strMealThumb, strYouTube } = m;
+			strMealThumb, strYoutube } = m;
 
 			//handle the instructions
 			const instructions = strInstructions.split('.')
@@ -60,18 +60,21 @@
 			}).join('');
 
 			//handle the ingredients
-			let ingredientKeys = [];
-			let measureKeys = [];
-			
-			for(let i = 1; i < 21; i++) {
-				ingredientKeys.push(`strIngredient${i}`);
-				measureKeys.push(`strMeasure${i}`);
+			let ingredients = [];
+			for(let i = 1; i <= 20; i++) {
+				if(m[`strIngredient${i}`]) {
+					//to put two strings as an item into array, 
+					//double backticks for ${js code} and string
+					ingredients.push(`${m[`strIngredient${i}`]} - ${m[`strMeasure${i}`]}`)	
+				} else {
+					//break to get out of for loop and continue; return to get out of function
+					break;
+				}
 			}
 
-			const ingredientList = ingredientKeys.map((ingredient, i) => {
-				if(!m[ingredient]) { return null };
+			const ingredientList = ingredients.map(ingredient => {
 				return `
-					<li>${m[ingredient]} ${m[measureKeys[i]]}</li>
+					<li>${ingredient}</li>
 				`
 			}).join('');
 
@@ -88,8 +91,9 @@
 					<h3>Instructions</h3>
 					<ol>
 						${displayInst}
-					</ol>
+					</ol>					
 				</div>
+					<iframe width="500" height="350"  src="https://www.youtube.com/embed/${strYoutube.slice(-11)}"></iframe>
 					`				
 		}
 
