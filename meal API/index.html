@@ -50,7 +50,6 @@
 			const { strMeal, strCategory, strArea, strInstructions, 
 			strMealThumb, strYoutube } = m;
 
-			//handle the instructions
 			const instructions = strInstructions.split('.')
 			const displayInst = instructions.map(sentence => {
 				if(!sentence) { return null };
@@ -59,12 +58,9 @@
 					`
 			}).join('');
 
-			//handle the ingredients
 			let ingredients = [];
 			for(let i = 1; i <= 20; i++) {
 				if(m[`strIngredient${i}`]) {
-					//to put two strings as an item into array, 
-					//double backticks for ${js code} and string
 					ingredients.push(`${m[`strIngredient${i}`]} - ${m[`strMeasure${i}`]}`)	
 				} else {
 					//break to get out of for loop and continue; return to get out of function
@@ -99,10 +95,10 @@
 
 		const mealContainer = document.querySelector('.meal-container');
 		const orderButton = document.querySelector('.order');
-		const searchName = document.querySelector('.search'); //form tag
+		const searchName = document.querySelector('.search'); 
 
 		orderButton.addEventListener('click', randomMeal); 
-		searchName.addEventListener('submit', mealByName);  //submit the form with input
+		searchName.addEventListener('submit', mealByName);  
 
 	</script>
 </body>
