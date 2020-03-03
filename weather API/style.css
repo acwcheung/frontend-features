@@ -12,10 +12,10 @@ body {
 /* search bar */
 /****************/
 form {
-  padding: 50px;
+  padding: 30px 60px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 svg {
@@ -67,7 +67,8 @@ button {
 }
 .name {
   font-size: 30px;
-  padding: 10px;
+  font-weight: 800;
+  padding: 10px; 
 }
 .main-temp {
   font-size: 45px;

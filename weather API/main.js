@@ -48,11 +48,11 @@ const rainy = `
 	`
 const weatherContainer = document.querySelector('.weather-container');
 const submitButton = document.querySelector('.submit');
+const key = "f535debb98ce44971795e7d37e1f37e2";
 
 function getWeather(e) {
 	e.preventDefault();
 	const city = document.querySelector('input[type=text]').value || "hongkong";
-	const key = "f535debb98ce44971795e7d37e1f37e2";
 	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`)
   	  .then(resp => resp.json())
   	  .then(data => display(data));
@@ -123,13 +123,16 @@ function display(info) {
 				<div class="min">min: ${main.temp_min}°C</div>
 				<div class="max">max: ${main.temp_max}°C</div>
 			</div>
-		</div>
-		
+		</div>		
 	  	`
-
 }
 
 submitButton.addEventListener('submit', getWeather);
 
+window.onload = function() {
+	fetch(`https://api.openweathermap.org/data/2.5/weather?q=hongkong&units=metric&appid=${key}`)
+  	  .then(resp => resp.json())
+  	  .then(data => display(data));	
+}
 
 
