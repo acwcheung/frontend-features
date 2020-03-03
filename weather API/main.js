@@ -111,15 +111,20 @@ function display(info) {
   	weatherContainer.innerHTML = `
 	  	<div class="name">${name}</div>
 		<div class="date">${date()}</div>
-		<div class="description">${handleIcon(description)}<span>${description}</span></div>
-		<div class="temp-container">
-			<div class="temp">temp: ${main.temp}</div>
-			<div class="feels-like">feels like: ${main.feels_like} C</div>
-			<div class="feels-min">min: ${main.temp_min}</div>
-			<div class="feels-max">max: ${main.temp_max}</div>
+		<div class="description">${handleIcon(description)}</div>
+		<h3 class="main-temp">${main.temp}°C</h3>
+		<div class="secondary-data">
+			<div class="others">	
+				<div class="humidity">humidity: ${main.humidity}</div>
+				<div class="wind">wind: ${wind.speed}</div>
+			</div>
+			<div class="temp">
+				<div class="feels-like">feels like: ${main.feels_like}°C</div>
+				<div class="min">min: ${main.temp_min}°C</div>
+				<div class="max">max: ${main.temp_max}°C</div>
+			</div>
 		</div>
-		<div class="humidity">humidity: ${main.humidity}</div>
-		<div class="wind">wind: ${wind.speed}</div>
+		
 	  	`
 
 }
