@@ -49,14 +49,15 @@ const rainy = `
 const weatherContainer = document.querySelector('.weather-container');
 const submitButton = document.querySelector('.submit');
 const key = "f535debb98ce44971795e7d37e1f37e2";
+const input = document.querySelector('input[type=text]');
 
 function getWeather(e) {
 	e.preventDefault();
-	const city = document.querySelector('input[type=text]').value || "hongkong";
+	const city = input.value || "hongkong";
 	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`)
   	  .then(resp => resp.json())
   	  .then(data => display(data));
- 	document.querySelector('input[type=text]').value = ""; 	  
+ 	input.value = ""; 	  
 }
 
 function handleIcon(weather) {
@@ -75,15 +76,20 @@ function handleIcon(weather) {
 	}
 }
 
-function date() {
-	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function getDate() {
+	const months = [
+		"January", "February", "March", 
+		"April", "May", "June", 
+		"July", "August", "September", 
+		"October", "November", "December"
+	];
 	const date = new Date();
 	const day = date.getDate();
 	const month = date.getMonth();
-	const monthSelected = months.slice(month);
 	const year = date.getFullYear();
-	const dateFormat = `${day} ${monthSelected[0]} ${year}`;
-	return dateFormat;
+	const monthSelected = months.slice(month);
+	const dateFormatted = `${day} ${monthSelected[0]} ${year}`;
+	return dateFormatted;
 }
 
 function backgroundImage(weather) {
@@ -110,7 +116,7 @@ function display(info) {
 	backgroundImage(description);
   	weatherContainer.innerHTML = `
 	  	<div class="name">${name}</div>
-		<div class="date">${date()}</div>
+		<div class="date">${getDate()}</div>
 		<div class="description">${handleIcon(description)}</div>
 		<h3 class="main-temp">${main.temp}°C</h3>
 		<div class="secondary-data">
@@ -130,7 +136,8 @@ function display(info) {
 submitButton.addEventListener('submit', getWeather);
 
 window.onload = function() {
-	fetch(`https://api.openweathermap.org/data/2.5/weather?q=hongkong&units=metric&appid=${key}`)
+	const city = "hongkong";
+	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`)
   	  .then(resp => resp.json())
   	  .then(data => display(data));	
 }
